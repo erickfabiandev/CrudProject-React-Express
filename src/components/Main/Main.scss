@@ -32,7 +32,7 @@
     width: 370px;
     overflow: hidden; /* Asegura que el contenido dentro del contenedor se ajuste al border-radius */
     border-radius: 8px;
-    box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.2), -4px 0 4px -2px rgba(0, 0, 0, 0.2), 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: $color-background-shade;
 
     @media (min-width: 1024px) {
         width: 970px;
