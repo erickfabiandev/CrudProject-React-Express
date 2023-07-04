@@ -7,7 +7,10 @@
     padding: 0rem;
 }
 
-
+.container__main{
+    display: flex;
+    flex-direction: column;
+}
 
 .text-container{
     display: flex;
