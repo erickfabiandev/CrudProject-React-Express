@@ -1,7 +1,14 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-}
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  gap: 20px;
+  }
 
+.vistareporte{
+  background: #D5D8DC;
+  width: 80%;
+}

@@ -1,0 +1,30 @@
+.container-form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 30%;
+    
+}
+
+.container-form__title{
+    padding-bottom: 20px;
+}
+
+.product-form__subtitle{
+    font-weight: bold;
+}
+
+.product-form{
+    background: var(--color-background-form);
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product--buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 10px;
+}
