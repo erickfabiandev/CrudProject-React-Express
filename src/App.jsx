@@ -29,10 +29,13 @@ function App() {
   return (
 
     <>
-      <h1>CRUD PROJECT </h1>
+      
       <Header></Header>
-      <Main></Main>
-      <FormProduct idProductEdit={1}/>
+      <div className='container_main'>
+        <Main></Main>
+        <FormProduct idProductEdit={1}/>
+      </div>
+      
     </>
   )
 }

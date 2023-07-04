@@ -52,7 +52,8 @@ const FormProduct = ({idProductEdit}) => {
                     <Row className="mb-3">
                         <Form.Group as={Col} className="mb-3">
                             <label htmlFor='productName' className='product-form__subtitle'>PRODUCT NAME:</label>
-                            <Form.Control 
+                            <Form.Control
+                            id= 'productName'
                             type='text'
                             placeholder="your product name"
                             name='productName'
@@ -67,6 +68,7 @@ const FormProduct = ({idProductEdit}) => {
                         <Form.Group as={Col} className="mb-3">
                             <label htmlFor='color'className='product-form__subtitle'>COLOR: </label>
                             <Form.Control
+                            id='color'
                             type='text' 
                             placeholder="silver,black, white, etc"
                             name='color'
@@ -79,7 +81,7 @@ const FormProduct = ({idProductEdit}) => {
                     <Row className="mb-3">
                         <Form.Group as={Col} className="mb-3">
                             <label htmlFor='Category'className='product-form__subtitle'>CATEGORY: </label>
-                            <Form.Select aria-label="Default select example" name='category' onChange={handleChange}>
+                            <Form.Select aria-label="Default select example" id='category' name='category' onChange={handleChange}>
                                 <option>Open this select menu</option>
                                 {datCategory.map( (category,index)=>{
                                     return <option key={index} value={category} >{category}</option>
@@ -92,6 +94,7 @@ const FormProduct = ({idProductEdit}) => {
                         <Form.Group as={Col} className="mb-3">
                             <label htmlFor='price'className='product-form__subtitle'>PRICE: </label>
                             <Form.Control
+                            id='price'
                             type='number' 
                             placeholder="$1999.99"
                             name='price'                

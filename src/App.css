@@ -1,14 +1,21 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: 40px;
-  gap: 20px;
+  width: 100%;  
+  
   }
 
-.vistareporte{
-  background: #D5D8DC;
-  width: 80%;
-}
+  .container_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+
+

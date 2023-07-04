@@ -12,7 +12,7 @@ export const Header = ()=> {
             </div>
             <div className='header-right-side'>
                 <p>Get started</p>
-                <span class="material-symbols-rounded">menu</span>
+                <span className="material-symbols-rounded">menu</span>
             </div>
         </div>
          
