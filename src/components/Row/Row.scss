@@ -1,0 +1,16 @@
+@import '../../styles/abstract/variables.scss';
+
+tr{
+        
+    height: 70px;
+}
+
+th{
+    vertical-align: middle;
+    background-color: $color-body-table !important;
+}
+
+td{
+    vertical-align: middle;
+    color: $color-gray !important;
+}

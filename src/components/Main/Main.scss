@@ -1,0 +1,60 @@
+@import '../../styles/base/base.scss';
+@import '../../styles/abstract/variables.scss';
+
+#root{
+
+    margin: 0;
+    padding: 0rem;
+}
+
+
+
+.text-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    h1{
+        text-align: initial;
+        font-size: 1.5rem;
+
+        @media (min-width: 1024px) {
+            font-size: $font-size-large;
+        }
+    }
+
+}
+.table-container {
+    width: 370px;
+    overflow: hidden; /* Asegura que el contenido dentro del contenedor se ajuste al border-radius */
+    border-radius: 8px;
+    box-shadow: 4px 0 4px -2px rgba(0, 0, 0, 0.2), -4px 0 4px -2px rgba(0, 0, 0, 0.2), 0 4px 4px -2px rgba(0, 0, 0, 0.2);
+
+    @media (min-width: 1024px) {
+        width: 970px;
+    }
+}
+
+.table{
+    padding: 0.5rem 0.4rem;
+    margin: 0px;
+    font-size: 0.9rem;
+
+    @media (min-width: 1024px) {
+        font-size: $font-size-small;
+    }
+    
+}
+
+thead{
+
+    tr{
+
+        th{
+            
+            background-color: $color-title-table!important;
+        }
+        
+    }
+}
+

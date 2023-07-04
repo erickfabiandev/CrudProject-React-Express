@@ -1,11 +1,15 @@
 import { useState } from 'react'
 import './App.css'
+import { Main } from './components/Main'
+import Header from './components/Header'
 import FormProduct from './components/FormProduct/FormProduct'
+
 
 function App() {
 
   const [productos,setProduct]=useState({});
   const [idProductActivated,setIdProductActivated]=useState({undefined})
+  
   const handleAddProduct=(newProduct)=>{ 
      /** logic to add product - POST*/   
   }
@@ -23,10 +27,12 @@ function App() {
   } 
   
   return (
-    <>      
-      <div className='vistareporte'>vista Reporte</div> 
-      <FormProduct idProductEdit={1}/>  
 
+    <>
+      <h1>CRUD PROJECT </h1>
+      <Header></Header>
+      <Main></Main>
+      <FormProduct idProductEdit={1}/>
     </>
   )
 }

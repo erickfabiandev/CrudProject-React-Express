@@ -1,6 +1,8 @@
+@import '../abstract/variables.scss';
+
 html, body {
-    font-family: var(--font-Zilla);    
-    background-color: var(--color-background);
+    font-family: $font-Zilla;    
+    background-color: $color-background;
     display: flex;
     align-items: center;
     justify-content: center;

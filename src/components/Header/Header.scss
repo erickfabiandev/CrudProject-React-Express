@@ -1,0 +1,47 @@
+@import '../../styles/abstract/variables.scss';
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-background-footer;
+    height: 70px;
+    padding: 1rem 1rem;
+    margin-bottom: 2.5rem;
+    color:$color-white;
+}
+
+.header-container__left-side{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: $font-size-medium;
+
+    span{
+        background-image: url('../../../public/comprobar.png');
+        width: 40px;
+        height: 40px;
+        display: flex;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-right: 0.3rem;
+    }
+}
+
+.header-right-side{
+    display: flex;
+
+    p{
+        margin-right: 2rem;
+    }
+}
+
+.material-symbols-rounded {
+    color:$color-gray ;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
