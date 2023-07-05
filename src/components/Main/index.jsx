@@ -2,15 +2,16 @@ import './Main.scss'
 import Row from '../Row'
 import ButtonAction from '../Buttons/ButtonAction'
 
-export const Main = ()=> {
+export const Main = (props)=> {
 
+  const {productos, onShowForm} = props
   
     return (
       <>
       <div className='container__main'>
         <div className='text-container'>
           <h1>Product List</h1>
-          <ButtonAction name='Add' type='submit' onClick= {undefined}></ButtonAction>
+          <ButtonAction name='Add' type='Submit' onClick= {onShowForm}></ButtonAction>
         </div>
         <div className='table-container'>
           <table className="table">
@@ -24,7 +25,7 @@ export const Main = ()=> {
                   </tr>
               </thead>
               <tbody>
-                  <Row></Row>
+                  <Row productos = {productos}></Row>
               </tbody>
           </table> 
 

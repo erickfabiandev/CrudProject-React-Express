@@ -7,8 +7,27 @@ import FormProduct from './components/FormProduct/FormProduct'
 
 function App() {
 
-  const [productos,setProduct]=useState({});
-  const [idProductActivated,setIdProductActivated]=useState({undefined})
+  const arrayProducts = [
+    { 
+      'id':1,
+      'name':'Recycled Steel Sausages',
+      'color':'white',
+      'category':'Music',
+      'price':'$386.00'
+    },
+    { 
+      'id':2,
+      'name':'Fantastic Frozen Shirt',
+      'color':'pink',
+      'category':'Clothing',
+      'price':'$20.00'
+    }
+  ]
+
+  const [productos,setProduct]=useState(arrayProducts);
+  const [idProductActivated,setIdProductActivated]=useState({undefined});
+  const [showForm, setShowForm] = useState(true);
+
   
   const handleAddProduct=(newProduct)=>{ 
      /** logic to add product - POST*/   
@@ -25,6 +44,15 @@ function App() {
   const productActivated=(id)=>{
     setIdProductActivated(id);
   } 
+
+  const handleShowForm = ()=>{
+    if(showForm){
+      setShowForm(false)
+    }else{
+      setShowForm(true)
+    }
+    
+  }
   
   return (
 
@@ -32,8 +60,8 @@ function App() {
       
       <Header></Header>
       <div className='container_main-app'>
-        <Main></Main>
-        <FormProduct idProductEdit={1}/>
+        <Main productos={productos} onShowForm = {handleShowForm}></Main>
+        {!showForm && <FormProduct idProductEdit={1}/>}
       </div>
       
     </>

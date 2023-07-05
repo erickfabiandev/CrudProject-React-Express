@@ -10,7 +10,9 @@
 .container__main{
     display: flex;
     flex-direction: column;
+    overflow-x: auto;
     align-self: flex-start;
+    padding: 0.2rem;
 
 }
 
@@ -18,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
+    min-width: 700px;
     
     h1{
         text-align: initial;
@@ -34,6 +37,7 @@
     overflow: hidden; /* Asegura que el contenido dentro del contenedor se ajuste al border-radius */
     border-radius: 8px;
     box-shadow: $color-background-shade;
+    min-width: 700px;
 
     @media (min-width: 1024px) {
         width: 970px;
@@ -45,6 +49,7 @@
     margin: 0px !important;
     font-size: 1rem !important;
     text-align: left;
+    min-width: 700px ;
 
     @media (min-width: 1024px) {
         font-size: $font-size-small;
