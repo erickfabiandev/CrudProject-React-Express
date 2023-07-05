@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     align-self: flex-start;
+
 }
 
 .text-container{
@@ -20,7 +21,7 @@
     
     h1{
         text-align: initial;
-        font-size: 1.5rem;
+        font-size: 2rem !important;
 
         @media (min-width: 1024px) {
             font-size: $font-size-large;
@@ -29,7 +30,7 @@
 
 }
 .table-container {
-    width: 370px;
+    width: 100%;
     overflow: hidden; /* Asegura que el contenido dentro del contenedor se ajuste al border-radius */
     border-radius: 8px;
     box-shadow: $color-background-shade;
@@ -41,8 +42,9 @@
 
 .table{
     padding: 0.5rem 0.4rem;
-    margin: 0px;
-    font-size: 0.9rem;
+    margin: 0px !important;
+    font-size: 1rem !important;
+    text-align: left;
 
     @media (min-width: 1024px) {
         font-size: $font-size-small;
@@ -53,12 +55,28 @@
 thead{
 
     tr{
+        padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
 
         th{
             
             background-color: $color-title-table!important;
+
+            &:nth-child(1){
+                padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+            }
+            
         }
-        
+
     }
 }
+
+tbody{
+
+    th{
+        &:nth-child(1){
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+        }
+    }
+}
+
 

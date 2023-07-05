@@ -1,5 +1,6 @@
 import './Main.scss'
 import Row from '../Row'
+import ButtonAction from '../Buttons/ButtonAction'
 
 export const Main = ()=> {
 
@@ -9,7 +10,7 @@ export const Main = ()=> {
       <div className='container__main'>
         <div className='text-container'>
           <h1>Product List</h1>
-          <button>Add</button>
+          <ButtonAction name='Add' type='submit' onClick= {undefined}></ButtonAction>
         </div>
         <div className='table-container'>
           <table className="table">

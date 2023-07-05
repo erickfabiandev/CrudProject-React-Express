@@ -31,7 +31,7 @@ function App() {
     <>
       
       <Header></Header>
-      <div className='container_main'>
+      <div className='container_main-app'>
         <Main></Main>
         <FormProduct idProductEdit={1}/>
       </div>
