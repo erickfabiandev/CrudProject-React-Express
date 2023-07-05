@@ -11,7 +11,7 @@ export const Main = (props)=> {
       <div className='container__main'>
         <div className='text-container'>
           <h1>Product List</h1>
-          <ButtonAction name='Add' type='Submit' onClick= {onShowForm}></ButtonAction>
+          <ButtonAction name='Add' type='button' onClick= {onShowForm}></ButtonAction>
         </div>
         <div className='table-container'>
           <table className="table">
