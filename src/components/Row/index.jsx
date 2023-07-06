@@ -1,18 +1,26 @@
 import './Row.scss'
 
 
-export const Row = ()=> {
-
+export const Row = (props) => {
+    const { productos } = props;
   
     return (
-        <tr>
-            <th scope="row">Recycled Steel Sausages</th>
-            <td>white</td>
-            <td>Music</td>
-            <td>$386.00</td>
-            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
-        </tr>
-    )
-  }
+      <>
+        {productos.map((producto) => (
+          <tr key={producto.id}>
+            <th scope="row">{producto.name}</th>
+            <td>{producto.color}</td>
+            <td>{producto.category}</td>
+            <td>{producto.price}</td>
+            <td>
+              <a href="#">Edit</a> | <a href="#">Delete</a>
+            </td>
+          </tr>
+        ))}
+      </>
+    );
+  };
+  
+  
   
   export default Row
