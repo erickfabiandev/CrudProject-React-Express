@@ -25,7 +25,7 @@ function App() {
   ]
 
   const [productos,setProduct]=useState(arrayProducts);
-  const [idProductActivated,setIdProductActivated]=useState({undefined});
+  const [isProductSelect,setIsProductSelect]=useState(undefined);
   const [showForm, setShowForm] = useState(true);
 
   
@@ -41,8 +41,8 @@ function App() {
   const hanldeSearchProduct=(id)=>{
      /** logic to search product */
   }
-  const productActivated=(id)=>{
-    setIdProductActivated(id);
+  const handleProductSelect=(product)=>{
+    setIsProductSelect(product);
   } 
 
   const handleShowForm = ()=>{
@@ -60,8 +60,8 @@ function App() {
       
       <Header></Header>
       <div className='container_main-app'>
-        <Main productos={productos} onShowForm = {handleShowForm}></Main>
-        {!showForm && <FormProduct idProductEdit={1}/>}
+        <Main productos={productos} onShowForm = {handleShowForm} isProductEdit={handleProductSelect}></Main>
+        {!showForm && <FormProduct productSelect={isProductSelect} />}
       </div>
       
     </>

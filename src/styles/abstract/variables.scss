@@ -10,7 +10,7 @@ $color-black: #0F0E0E;
 $color-gray:#99A3A4;
 /* Button background colors and button font delete and edit */
 $color-gray--dark:#626567 ;
-$color-skyblue:#3498DB;
+$color-skyblue:#366DEE;
 $color-green:#2ECC71;
 /* letter buttons  */  
 $color-white:#FDFEFE;
@@ -23,24 +23,3 @@ $color-title-table: #f9fafb;
 $color-body-table: #ffffff;
 $color-background-footer: #1e2a37;
 $color-background-shade: 4px 0 4px -2px rgba(0, 0, 0, 0.2), -4px 0 4px -2px rgba(0, 0, 0, 0.2), 0 4px 4px -2px rgba(0, 0, 0, 0.2);
-
-
-:root {
-    --font-Zilla: 'Zilla Slab', serif;
-    --color-background: #F8F9F9;
-    --font-size-large:30px;
-    --font-size-small:20px;
-    --color-black: #0F0E0E;
-    /* Use for attributes (color, category, price) of producList */
-    --color-gray:#99A3A4;
-    /* Button background colors and button font delete and edit */
-    --color-gray--dark:#626567 ;
-    --color-skyblue:#3498DB;
-    --color-green:#2ECC71;
-   /* letter buttons  */  
-    --color-white:#FDFEFE;
-  /* title letter */
-    --color-black: #0F0E0E;
-  /*form background */
-    --color-background-form:#F2F4F4;
-  }

@@ -1,41 +1,55 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ButtonAction from '../Buttons/ButtonAction';
 import './FormProduct.scss'
 
-const FormProduct = ({idProductEdit}) => {
+const FormProduct = (props) => {
+
+    const{productSelect} = props;
 
     const [ product, setProduct ] = useState({
-        productName: '',
+        name: '',
         color: '',
         category: '',
         price:''
       });
 
-    
-      const datCategory=['categ1','categ2','categ3','categ4']
+      const datCategory=['Music','Clothing']
 
-      const handleChange =(event)=>{
+    useEffect(()=>{
+        if(productSelect!=undefined)
+        {
+            const priceCast=productSelect.price;
+            setProduct({...productSelect,price:Number(priceCast.replace(/\$/g, ''))});
+        }}
+        ,[productSelect]);
+
+
+    const handleChange =(event)=>{
             const {name,value}=event.target
             setProduct({...product,[name]:value})
       }
 
-      const handleProduct =(event)=>{
+    const handleProduct =(event)=>{
         event.preventDefault();
-        console.log(event)
         console.log(product)
         /**
          * add,update
          */
 
-
+        setProduct({
+            name: '',
+            color: '',
+            category: '',
+            price:''
+        })        
      }
 
-     const handleCancel = (event)=>{
+    const handleCancel = (event)=>{
         setProduct({
-            productName: '',
+           name: '',
             color: '',
             category: '',
             price:''
@@ -45,7 +59,7 @@ const FormProduct = ({idProductEdit}) => {
 
     return(
         <div className='container-form'>
-            <h2 className='container-form__title'>{idProductEdit?'Edit Product':'Add Product'}</h2>
+            <h2 className='container-form__title'>{productSelect?'Edit Product':'Add Product'}</h2>
             <form className='product-form' onSubmit={handleProduct}>
                 <div>
                     {/** input productName */}
@@ -56,9 +70,10 @@ const FormProduct = ({idProductEdit}) => {
                             id= 'productName'
                             type='text'
                             placeholder="your product name"
-                            name='productName'
-                            value={product.productName} 
+                            name='name'
+                            value={product.name} 
                             onChange={handleChange}
+                            required
                             />
                         </Form.Group>
 
@@ -72,6 +87,7 @@ const FormProduct = ({idProductEdit}) => {
                             type='text' 
                             placeholder="silver,black, white, etc"
                             name='color'
+                            required
                             value={product.color} 
                             onChange={handleChange}
                             />
@@ -80,8 +96,14 @@ const FormProduct = ({idProductEdit}) => {
                     {/** input Category */}
                     <Row className="mb-3">
                         <Form.Group as={Col} className="mb-3">
-                            <label htmlFor='Category'className='product-form__subtitle'>CATEGORY: </label>
-                            <Form.Select aria-label="Default select example" id='category' name='category' onChange={handleChange}>
+                            <label htmlFor='category'className='product-form__subtitle'>CATEGORY: </label>
+                            <Form.Select 
+                            aria-label="Default select example" 
+                            id='category' 
+                            name='category'
+                            required
+                            value={product.category}
+                            onChange={handleChange}>                                
                                 <option>Open this select menu</option>
                                 {datCategory.map( (category,index)=>{
                                     return <option key={index} value={category} >{category}</option>
@@ -97,7 +119,8 @@ const FormProduct = ({idProductEdit}) => {
                             id='price'
                             type='number' 
                             placeholder="$1999.99"
-                            name='price'                
+                            name='price'
+                            required                
                             step='any'
                             min={0}
                             value={product.price}
@@ -108,7 +131,7 @@ const FormProduct = ({idProductEdit}) => {
                 </div>
                 <div className='product--buttons'>
                 {/** buttons */}
-                {idProductEdit? (<>
+                {productSelect? (<>
                     <ButtonAction name='Cancel' type='button' onClick= {handleCancel}/>
                     <ButtonAction name='Update' type='submit' onClick= {undefined}/>
                     </>):<ButtonAction name='Add' type='submit' onClick= {undefined}/>}

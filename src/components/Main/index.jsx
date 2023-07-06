@@ -4,7 +4,7 @@ import ButtonAction from '../Buttons/ButtonAction'
 
 export const Main = (props)=> {
 
-  const {productos, onShowForm} = props
+  const {productos, onShowForm, isProductEdit} = props
   
     return (
       <>
@@ -25,7 +25,7 @@ export const Main = (props)=> {
                   </tr>
               </thead>
               <tbody>
-                  <Row productos = {productos}></Row>
+                  <Row productos = {productos} isProductEdit={isProductEdit}></Row>
               </tbody>
           </table> 
 
