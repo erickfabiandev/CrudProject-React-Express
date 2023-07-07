@@ -3,11 +3,18 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ButtonAction from '../Buttons/ButtonAction';
+import {createProduct , updateProduct} from '../../service/service';
 import './FormProduct.scss'
 
 const FormProduct = (props) => {
 
-    const{productSelect} = props;
+    const{
+        productSelect,
+        modeSelect,
+        onAddProduct,
+        onEditProduct,
+        onResetSelect,
+    } = props;
 
     const [ product, setProduct ] = useState({
         name: '',
@@ -16,28 +23,41 @@ const FormProduct = (props) => {
         price:''
       });
 
-      const datCategory=['Music','Clothing']
+      const datCategory=['Music','Clothing','']
 
     useEffect(()=>{
-        if(productSelect!=undefined)
+        if(productSelect!=undefined && modeSelect==='edit')
         {
             const priceCast=productSelect.price;
             setProduct({...productSelect,price:Number(priceCast.replace(/\$/g, ''))});
         }}
         ,[productSelect]);
 
-
+      
     const handleChange =(event)=>{
             const {name,value}=event.target
             setProduct({...product,[name]:value})
-      }
+    }
 
     const handleProduct =(event)=>{
         event.preventDefault();
-        console.log(product)
-        /**
-         * add,update
-         */
+        if(modeSelect==='edit')
+        {
+            const productEdit= {
+                ...product,
+                price: `$${product.price}`
+            }
+            updateProduct(productEdit,onEditProduct)
+        }
+        else
+        {
+            const newProduct = {
+                ...product,
+                id: Date.now(),
+                price: `$${product.price}`
+              }            
+            createProduct(newProduct,onAddProduct)
+        }       
 
         setProduct({
             name: '',
@@ -54,12 +74,13 @@ const FormProduct = (props) => {
             category: '',
             price:''
         })
+        onResetSelect()
      }
 
 
     return(
         <div className='container-form'>
-            <h2 className='container-form__title'>{productSelect?'Edit Product':'Add Product'}</h2>
+            <h2 className='container-form__title'>{modeSelect==='edit'?'Edit Product':'Add Product'}</h2>
             <form className='product-form' onSubmit={handleProduct}>
                 <div>
                     {/** input productName */}
@@ -131,7 +152,7 @@ const FormProduct = (props) => {
                 </div>
                 <div className='product--buttons'>
                 {/** buttons */}
-                {productSelect? (<>
+                {modeSelect==='edit'? (<>
                     <ButtonAction name='Cancel' type='button' onClick= {handleCancel}/>
                     <ButtonAction name='Update' type='submit' onClick= {undefined}/>
                     </>):<ButtonAction name='Add' type='submit' onClick= {undefined}/>}
