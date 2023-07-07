@@ -2,7 +2,7 @@ import './Row.scss'
 
 
 export const Row = (props) => {
-    const { productos, isProductEdit } = props;
+    const { productos, isProductSelect } = props;
   
     return (
       <>
@@ -13,7 +13,7 @@ export const Row = (props) => {
             <td>{producto.category}</td>
             <td>{producto.price}</td>
             <td>
-              <a onClick={()=>isProductEdit(producto)}>Edit</a> | <a>Delete</a>
+              <a onClick={()=>isProductSelect(producto,'edit')}>Edit</a> | <a>Delete</a>
             </td>
           </tr>
         ))}

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
 import { Main } from './components/Main'
 import Header from './components/Header'
@@ -7,43 +7,35 @@ import FormProduct from './components/FormProduct/FormProduct'
 
 function App() {
 
-  const arrayProducts = [
-    { 
-      'id':1,
-      'name':'Recycled Steel Sausages',
-      'color':'white',
-      'category':'Music',
-      'price':'$386.00'
-    },
-    { 
-      'id':2,
-      'name':'Fantastic Frozen Shirt',
-      'color':'pink',
-      'category':'Clothing',
-      'price':'$20.00'
-    }
-  ]
-
-  const [productos,setProduct]=useState(arrayProducts);
+  const [productos,setProducts]=useState([]);
   const [isProductSelect,setIsProductSelect]=useState(undefined);
+  const [isModeSelect,setIsModeSelect]=useState(undefined)
   const [showForm, setShowForm] = useState(true);
 
-  
+ 
   const handleAddProduct=(newProduct)=>{ 
-     /** logic to add product - POST*/   
+    setProducts([...productos,newProduct]);
   }
+
   const handleEditProduct=(productEdit)=>{
-    /** logic to add product - POST*/
-  } 
+      const indexProduct = productos.findIndex((item)=>item.id===productEdit.id)
+      const UpdateProducts = [...productos]
+      UpdateProducts[indexProduct]=productEdit
+      setProducts(UpdateProducts)
+      handleResetSelect()
+  }
   const hanldeDeleteProduct=()=>{
      /**logic to delete product */
   } 
-  const hanldeSearchProduct=(id)=>{
-     /** logic to search product */
-  }
-  const handleProductSelect=(product)=>{
+  const handleProductSelect=(product,modeSelect)=>{
     setIsProductSelect(product);
-  } 
+    modeSelect==='edit'?setIsModeSelect('edit'):setIsModeSelect('delete')
+  }
+  const handleResetSelect=()=>{
+    setIsModeSelect('')
+    setIsProductSelect(undefined)
+  }
+  
 
   const handleShowForm = ()=>{
     if(showForm){
@@ -55,13 +47,22 @@ function App() {
   }
   
   return (
-
-    <>
-      
+    <>      
       <Header></Header>
       <div className='container_main-app'>
-        <Main productos={productos} onShowForm = {handleShowForm} isProductEdit={handleProductSelect}></Main>
-        {!showForm && <FormProduct productSelect={isProductSelect} />}
+        <Main 
+        productos={productos} 
+        onShowForm = {handleShowForm} 
+        isProductSelect={handleProductSelect}
+        />
+        {!showForm && 
+        <FormProduct 
+        productSelect={isProductSelect}
+        modeSelect={isModeSelect} 
+        onAddProduct={handleAddProduct} 
+        onEditProduct={handleEditProduct}
+        onResetSelect={handleResetSelect}
+        />}
       </div>
       
     </>
