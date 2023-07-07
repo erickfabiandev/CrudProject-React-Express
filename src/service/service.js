@@ -1,4 +1,4 @@
-const url = 'http://localhost:8080/products'
+const url = `${import.meta.env.VITE_APIVITE_API_BASE_URL}/products`
 
 export const createProduct= async (product,onAddProduct)=>{
     const configFetch = {
