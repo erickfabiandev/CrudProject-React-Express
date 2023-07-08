@@ -52,3 +52,13 @@
   'GRAD' 0,
   'opsz' 48
 }
+
+.hide-arrow{
+    background: none !important;
+    border: none !important;
+    &:after{
+        display: none !important;
+    }
+
+  }
+

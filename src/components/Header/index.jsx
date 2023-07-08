@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ModalInformation from '../ModalInformation/ModalInformation';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Dropdown } from 'react-bootstrap';
 import './Header.scss'
 
 export const Header = ()=> {
@@ -22,10 +22,13 @@ export const Header = ()=> {
             </div>
             <div className='header-right-side'>
                 <p>Get started</p>
-              <NavDropdown title={menu} id="basic-nav-dropdown">
-                  <NavDropdown.Item onClick={()=>{handleShow() ,setIsOption('About')}}>About</NavDropdown.Item>                            
-                  <NavDropdown.Item onClick={()=>{handleShow() ,setIsOption('Teams')}}>Teams</NavDropdown.Item>                                                
-              </NavDropdown>              
+                <Dropdown>
+                    <Dropdown.Toggle className="hide-arrow">{menu}</Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={()=>{handleShow() ,setIsOption('About')}}>About</Dropdown.Item>
+                      <Dropdown.Item onClick={()=>{handleShow() ,setIsOption('Teams')}}>Teams</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>                        
             </div>
         </div>
         <ModalInformation show={show} handleClose={handleClose} isOption={isOption}/>
