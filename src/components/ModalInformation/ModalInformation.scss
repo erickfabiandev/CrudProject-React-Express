@@ -1,0 +1,39 @@
+@import '../../styles/abstract/variables.scss';
+
+.container_contact_Card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.Contact_Card{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &--linkedin,&--github{
+        width: 30px;
+        height: 30px;
+        padding: 2px;
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+    
+}
+
+.Contact_Card_image{
+    height: 100px;
+    width: 80px;
+    border-radius: 50%;
+}

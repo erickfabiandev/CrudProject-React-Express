@@ -12,8 +12,7 @@ export const createProduct= async (product,onAddProduct)=>{
       try {
         const response = await fetch(url, configFetch)
         const productData = await response.json();
-        onAddProduct(productData.data);
-  
+        onAddProduct(productData.data);  
       } catch(error) {
         console.log(`Ups! ocurrió algo, intentalo más tarde. Error: ${error}`)
       }
