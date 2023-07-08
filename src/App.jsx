@@ -13,19 +13,23 @@ function App() {
   const [isProductSelect,setIsProductSelect]=useState(undefined);
   const [isModeSelect,setIsModeSelect]=useState(undefined)
   const [showForm, setShowForm] = useState(true);
+  const [loading,setLoading]=useState(false);
 
 
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const products = await getAllProducts();
         setProducts(products);
       } catch (error) {
         console.log(`Ups! Ocurrió algo, inténtalo más tarde. Error: ${error}`);
       }
-    };
-  
+      finally{
+        setLoading(false);
+      }
+    };  
     fetchProducts();
   }, []);
 
@@ -73,7 +77,8 @@ function App() {
       <Header></Header>
       <div className='container_main-app'>
         <Main 
-        productos={productos} 
+        productos={productos}
+        loading ={loading} 
         onShowForm = {handleShowForm} 
         isProductSelect={handleProductSelect}
         onDeleteProduct={hanldeDeleteProduct}

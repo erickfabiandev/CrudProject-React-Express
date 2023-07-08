@@ -4,7 +4,7 @@ import ButtonAction from '../Buttons/ButtonAction'
 
 export const Main = (props)=> {
 
-  const {productos, onShowForm, isProductSelect, onDeleteProduct} = props
+  const {productos, loading ,onShowForm, isProductSelect, onDeleteProduct} = props
   
     return (
       <>
@@ -25,7 +25,8 @@ export const Main = (props)=> {
                   </tr>
               </thead>
               <tbody>
-                  <Row productos = {productos} isProductSelect={isProductSelect} onDeleteProduct = {onDeleteProduct}></Row>
+                  <Row productos = {productos} loading={loading} isProductSelect={isProductSelect} onDeleteProduct = {onDeleteProduct}></Row>
+                  
               </tbody>
           </table> 
 

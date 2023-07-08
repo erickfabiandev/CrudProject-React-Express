@@ -23,7 +23,7 @@ const FormProduct = (props) => {
         price:''
       });
 
-      const datCategory=['Music','Clothing','Home','Baby']
+    const datCategory=['Music','Clothing','Home','Baby']
 
     useEffect(()=>{
         if(productSelect!=undefined && modeSelect==='edit')
