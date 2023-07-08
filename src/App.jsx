@@ -3,14 +3,31 @@ import './App.css'
 import { Main } from './components/Main'
 import Header from './components/Header'
 import FormProduct from './components/FormProduct/FormProduct'
+import { getAllProducts, deleteProduct} from './service/service'
 
 
 function App() {
+
 
   const [productos,setProducts]=useState([]);
   const [isProductSelect,setIsProductSelect]=useState(undefined);
   const [isModeSelect,setIsModeSelect]=useState(undefined)
   const [showForm, setShowForm] = useState(true);
+
+
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const products = await getAllProducts();
+        setProducts(products);
+      } catch (error) {
+        console.log(`Ups! Ocurrió algo, inténtalo más tarde. Error: ${error}`);
+      }
+    };
+  
+    fetchProducts();
+  }, []);
 
  
   const handleAddProduct=(newProduct)=>{ 
@@ -24,8 +41,13 @@ function App() {
       setProducts(UpdateProducts)
       handleResetSelect()
   }
-  const hanldeDeleteProduct=()=>{
-     /**logic to delete product */
+  const hanldeDeleteProduct=(productDelete)=>{
+    const indexProduct = productos.findIndex((item)=>item.id===productDelete.id)
+    const UpdateProducts = [...productos]
+    UpdateProducts.splice(indexProduct,1);
+    setProducts(UpdateProducts)
+    deleteProduct(productDelete)
+    handleResetSelect()
   } 
   const handleProductSelect=(product,modeSelect)=>{
     setIsProductSelect(product);
@@ -54,6 +76,7 @@ function App() {
         productos={productos} 
         onShowForm = {handleShowForm} 
         isProductSelect={handleProductSelect}
+        onDeleteProduct={hanldeDeleteProduct}
         />
         {!showForm && 
         <FormProduct 
