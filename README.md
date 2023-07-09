@@ -13,7 +13,7 @@
 
 ## Overview :writing_hand:
 The Product Manager is a web application developed with React and Sass that allows you to efficiently manage products. The application provides functionalities to add, edit, delete, and view products. It includes a form for adding and editing products, as well as a table that displays the registered products. The application connects to a backend API developed in Express to handle the data.
-This repository contains the frontend structure, here is the link of the backend repository: [Backend-Repository](https://github.com/viamazoba/CrudProject-Express)
+This repository contains the frontend structure, here is the link of the backend repository: [Backend-Repository](https://github.com/viamazoba/CrudProject-Express),and the link of the application deployed in vercel: [Deployed Project](https://crud-project-react-express.vercel.app/)
 
 ### Installation :gear:
 To get started with the project, follow these steps:
