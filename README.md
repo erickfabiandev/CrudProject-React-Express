@@ -66,6 +66,7 @@ Option About (Information about the project) / Option Teams (Development team)
 ![Alt text](./src/assets/image-8.png)
 
 **2. Mobile View**
+
 ![Alt text](./src/assets/image-9.png)
 
 
