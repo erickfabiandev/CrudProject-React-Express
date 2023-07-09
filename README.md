@@ -45,6 +45,7 @@ The main challenge of this project is to develop a web application that allows e
 
 ### Screenshot 📷 
 Here is a screenshot of the project's interface:
+
 **1. Web View**
 ![Alt text](./src/assets/image.png)
 **1.1. Features (ADD/EDIT/DELETE)**
